@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>식빵 레시피</title>
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <header>식빵 레시피</header>
+
+  <h1 id="title">레시피 제목</h1>
+
+  <div id="recipe-content" class="recipe-container"></div>
+
+  <button class="back-btn" onclick="window.history.back()">뒤로가기</button>
+  <footer>한양대 인터칼리지학과 G19</footer>
+
+  <script>
+    const recipes = {
+      "oliveoil": {
+        name: "Bread Croutons",
+        image: "food_picture/oliveoil.jpg",
+        topic_kr: "식빵을 이용한 바삭한 크루통",
+        ingredients_kr: "식빵, 올리브유, 소금, 허브",
+        steps_kr: [
+          "1. 식빵을 1cm 크기로 자른다.",
+          "2. 볼에 식빵, 올리브유, 소금, 허브를 넣고 섞는다.",
+          "3. 오븐이나 팬에서 바삭해질 때까지 굽는다.",
+          "4. 수프나 샐러드 위에 얹어 즐긴다."
+        ],
+        topic_en: "Crispy croutons made from leftover bread.",
+        ingredients_en: "Bread, olive oil, salt, herbs",
+        steps_en: [
+          "1. Cut bread into 1cm cubes.",
+          "2. Toss with olive oil, salt, and herbs.",
+          "3. Bake or pan-fry until crispy.",
+          "4. Top soups or salads."
+        ],
+        reference: "Homemade recipe"
+      },
+      "egg": {
+        name: "Egg Sandwich",
+        image: "food_picture/egg.jpg",
+        topic_kr: "식빵으로 만든 에그 샌드위치",
+        ingredients_kr: "식빵, 달걀, 마요네즈, 소금, 후추, 설탕",
+        steps_kr: [
+          "1. 삶은 달걀을 곱게 으깬다.",
+          "2. 마요네즈, 소금, 후추, 설탕을 섞는다.",
+          "3. 식빵에 펴 바르고 다른 식빵으로 덮는다.",
+          "4. 썰어 모양을 예쁘게 다듬는다."
+        ],
+        topic_en: "Classic egg sandwich using bread and boiled eggs.",
+        ingredients_en: "Bread, eggs, mayonnaise, salt, pepper, sugar",
+        steps_en: [
+          "1. Mash boiled eggs.",
+          "2. Mix with mayo, salt, pepper, sugar.",
+          "3. Spread on bread and top with another slice.",
+          "4. Cut and serve neatly."
+        ],
+        reference: "Homemade recipe"
+      },
+      "butter": {
+        name: "Bread Rusk",
+        image: "food_picture/butter.jpg",
+        topic_kr: "버터와 설탕으로 만든 바삭한 러스크",
+        ingredients_kr: "식빵, 버터, 설탕, (선택) 시나몬, 코코아",
+        steps_kr: [
+          "1. 버터와 설탕을 섞어 소스를 만든다.",
+          "2. 자른 식빵에 앞뒤로 바른다.",
+          "3. 오븐에서 5~7분간 구워준다.",
+          "4. 식혀서 바삭하게 즐긴다."
+        ],
+        topic_en: "Sweet and crunchy bread rusk with butter and sugar.",
+        ingredients_en: "Bread, butter, sugar, optional cinnamon or cocoa",
+        steps_en: [
+          "1. Mix melted butter and sugar.",
+          "2. Spread on cut bread pieces.",
+          "3. Bake for 5–7 minutes.",
+          "4. Cool and enjoy."
+        ],
+        reference: "Homemade recipe"
+      },
+      "raisin": {
+        name: "Bread Pudding",
+        image: "food_picture/raisin.jpg",
+        topic_kr: "식빵으로 만든 달콤한 빵 푸딩",
+        ingredients_kr: "식빵, 버터, 건포도, 우유, 설탕, 달걀, 계피, 바닐라",
+        steps_kr: [
+          "1. 베이킹 팬에 빵, 버터, 건포도를 올린다.",
+          "2. 우유, 설탕, 계란, 계피, 바닐라를 섞는다.",
+          "3. 반죽을 붓고 눌러 적신다.",
+          "4. 오븐에서 45분간 구워 완성한다."
+        ],
+        topic_en: "Sweet bread pudding with raisins.",
+        ingredients_en: "Bread, butter, raisins, milk, sugar, eggs, cinnamon, vanilla",
+        steps_en: [
+          "1. Layer bread, butter, raisins in a pan.",
+          "2. Mix milk, sugar, eggs, cinnamon, vanilla.",
+          "3. Pour mixture and press down.",
+          "4. Bake for 45 minutes."
+        ],
+        reference: "https://www.allrecipes.com/recipe/7177/bread-pudding-ii/"
+      },
+      "chutney": {
+        name: "Bread Pakora",
+        image: "food_picture/chutney.jpg",
+        topic_kr: "인도식 빵 파코라 간식",
+        ingredients_kr: "식빵, 병아리콩가루, 쌀가루, 베이킹소다, 고춧가루, 강황, 소금, 하리 처트니, 기름",
+        steps_kr: [
+          "1. 가루들로 반죽을 만든다.",
+          "2. 빵을 삼각형으로 자르고 처트니를 바른다.",
+          "3. 반죽을 입혀 기름에 튀긴다.",
+          "4. 기름을 빼고 완성한다."
+        ],
+        topic_en: "Indian-style bread pakora snack.",
+        ingredients_en: "Bread, chickpea flour, rice flour, baking soda, chili powder, turmeric, salt, chutney, oil",
+        steps_en: [
+          "1. Make batter with flours and spices.",
+          "2. Cut bread triangles, spread chutney.",
+          "3. Coat with batter and deep-fry.",
+          "4. Drain oil and serve."
+        ],
+        reference: "https://priyakitchenette.com/hari-chutney-wale-bread-pakora/"
+      }
+    };
+
+    const selected = localStorage.getItem("selectedIngredient");
+    const recipe = recipes[selected];
+
+    if (recipe) {
+      document.getElementById("title").textContent = recipe.name;
+      const container = document.getElementById("recipe-content");
+      const stepsKr = recipe.steps_kr.map(step => `<li>${step}</li>`).join("");
+      const stepsEn = recipe.steps_en.map(step => `<li>${step}</li>`).join("");
+
+      container.innerHTML = `
+        <img src="${recipe.image}" alt="${recipe.name}" class="recipe-img">
+
+        <div class="section-label">한국어</div>
+        <p><strong>주제:</strong> ${recipe.topic_kr}</p>
+        <p><strong>재료:</strong> ${recipe.ingredients_kr}</p>
+        <h3>레시피 설명</h3>
+        <ul>${stepsKr}</ul>
+
+        <div class="section-label">English</div>
+        <p><strong>Topic:</strong> ${recipe.topic_en}</p>
+        <p><strong>Ingredients:</strong> ${recipe.ingredients_en}</p>
+        <h3>Recipe Instructions</h3>
+        <ul>${stepsEn}</ul>
+
+        <p class="reference">
+          🔗 Reference: <a href="${recipe.reference}" target="_blank">${recipe.reference}</a>
+        </p>
+      `;
+    } else {
+      document.getElementById("recipe-content").innerHTML = "<p>선택된 재료가 없습니다.</p>";
+    }
+  </script>
+</body>
+</html>
